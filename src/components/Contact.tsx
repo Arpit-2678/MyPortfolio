@@ -52,14 +52,14 @@ const Contact = () => {
       icon: Github,
       label: "GitHub",
       username: "@arpitdwivedi",
-      href: "https://github.com/arpitdwivedi",
+      href: "https://github.com/Arpit-2678",
       color: "hover:text-gray-700"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       username: "/in/arpitdwivedi",
-      href: "https://linkedin.com/in/arpitdwivedi",
+      href: "https://www.linkedin.com/in/arpit-dwivedi2678/",
       color: "hover:text-blue-600"
     }
   ];
