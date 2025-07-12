@@ -29,6 +29,15 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Arpit_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
@@ -64,7 +73,7 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <Button variant="outline" size="sm" className="group">
+            <Button variant="outline" size="sm" className="group" onClick={downloadResume}>
               <Download className="mr-2 h-4 w-4" />
               Resume
             </Button>
@@ -101,7 +110,7 @@ const Navigation = () => {
                 </button>
               ))}
               <div className="pt-3 border-t border-border/50">
-                <Button variant="outline" size="sm" className="w-full group">
+                <Button variant="outline" size="sm" className="w-full group" onClick={downloadResume}>
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </Button>
