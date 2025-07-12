@@ -121,18 +121,6 @@ const Projects = () => {
                       ))}
                     </div>
 
-                    <div className="flex flex-wrap gap-3">
-                      <Button variant="default" size="sm" className="group">
-                        <Github className="mr-2 h-4 w-4" />
-                        View Code
-                        <ExternalLink className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                      <Button variant="outline" size="sm" className="group">
-                        <Smartphone className="mr-2 h-4 w-4" />
-                        Live Demo
-                        <ExternalLink className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </div>
                   </div>
 
                   {/* Visual Section */}

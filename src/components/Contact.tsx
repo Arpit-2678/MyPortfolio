@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 import { 
   Mail, 
   Phone, 
@@ -16,6 +17,43 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const { name, email, subject, message } = formData;
+    
+    // Create mailto URL with form data
+    const mailtoUrl = `mailto:arpitdwivedi2611@gmail.com?subject=${encodeURIComponent(subject || 'Contact Form Submission')}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`
+    )}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
+  };
+
   const contactInfo = [
     {
       icon: Mail,
@@ -91,7 +129,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-bold text-foreground">Send a Message</h3>
               </div>
 
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -99,8 +137,11 @@ const Contact = () => {
                     </label>
                     <Input 
                       id="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder="Enter your full name"
                       className="bg-background/50 border-border/50 focus:border-primary"
+                      required
                     />
                   </div>
                   <div>
@@ -110,8 +151,11 @@ const Contact = () => {
                     <Input 
                       id="email"
                       type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="your.email@example.com"
                       className="bg-background/50 border-border/50 focus:border-primary"
+                      required
                     />
                   </div>
                 </div>
@@ -122,8 +166,11 @@ const Contact = () => {
                   </label>
                   <Input 
                     id="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
                     placeholder="What's this about?"
                     className="bg-background/50 border-border/50 focus:border-primary"
+                    required
                   />
                 </div>
 
@@ -133,9 +180,12 @@ const Contact = () => {
                   </label>
                   <Textarea 
                     id="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Tell me about your project or opportunity..."
                     rows={6}
                     className="bg-background/50 border-border/50 focus:border-primary resize-none"
+                    required
                   />
                 </div>
 
