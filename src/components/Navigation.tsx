@@ -29,21 +29,20 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  const downloadResume = async () => {
-    try {
-      const response = await fetch('/resume.pdf');
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'Arpit_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Error downloading resume:', error);
-    }
+  const downloadResume = () => {
+    // Try direct download first
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Arpit_Resume.pdf';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback: open in new tab if download fails
+    setTimeout(() => {
+      window.open('/resume.pdf', '_blank');
+    }, 100);
   };
 
   return (
