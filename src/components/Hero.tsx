@@ -36,7 +36,7 @@ const Hero = () => {
             Available for Opportunities
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent leading-tight py-2">
             Arpit Dwivedi
           </h1>
           
@@ -90,7 +90,7 @@ const Hero = () => {
               asChild
               className="rounded-full"
             >
-              <a href="https://github.com/arpitdwivedi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/Arpit-2678" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
               </a>
             </Button>

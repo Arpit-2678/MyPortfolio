@@ -71,7 +71,7 @@ const Projects = () => {
           <Badge variant="outline" className="mb-4 text-primary border-primary/30 bg-primary/10">
             Featured Projects
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent leading-tight py-2">
             Innovative iOS Solutions
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -89,7 +89,7 @@ const Projects = () => {
                   {/* Project Info */}
                   <div className="lg:col-span-3 p-8">
                     <div className="flex items-start gap-4 mb-6">
-                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center ${project.bgColor} group-hover:scale-110 transition-transform`}>
+                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center ${project.bgColor} group-hover:scale-110 transition-transform flex-shrink-0`}>
                         <Icon className="h-8 w-8 text-primary" />
                       </div>
                       <div>
@@ -124,7 +124,7 @@ const Projects = () => {
                   </div>
 
                   {/* Visual Section */}
-                  <div className="lg:col-span-2 bg-gradient-to-br ${project.color} p-8 flex items-center justify-center relative overflow-hidden">
+                  <div className={`lg:col-span-2 bg-gradient-to-br ${project.color} p-8 flex items-center justify-center relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
                     <div className="relative z-10 text-center">
                       <div className="w-32 h-32 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mb-4 mx-auto">

@@ -109,7 +109,7 @@ const Contact = () => {
           <Badge variant="outline" className="mb-4 text-primary border-primary/30 bg-primary/10">
             Get In Touch
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent leading-tight py-2">
             Let's Build Something Amazing
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
