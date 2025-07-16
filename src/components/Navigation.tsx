@@ -29,20 +29,23 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  const downloadResume = () => {
-    // Try direct download first
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Arpit_Resume.pdf';
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Fallback: open in new tab if download fails
-    setTimeout(() => {
-      window.open('/resume.pdf', '_blank');
-    }, 100);
+  const downloadResume = async () => {
+    try {
+      const response = await fetch('/resume.pdf');
+      const arrayBuffer = await response.arrayBuffer();
+      const blob = new Blob([arrayBuffer], { type: 'application/pdf' });
+      
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Arpit_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+    }
   };
 
   return (
