@@ -31,7 +31,7 @@ const Navigation = () => {
 
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
+    link.href = '/MyPortfolio/resume.pdf';
     link.download = 'Arpit_Resume.pdf';
     document.body.appendChild(link);
     link.click();
