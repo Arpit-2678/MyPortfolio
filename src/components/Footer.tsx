@@ -1,97 +1,32 @@
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Heart, ArrowUp } from "lucide-react";
 
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const socialLinks = [
-    {
-      icon: Mail,
-      href: "mailto:arpitdwivedi2611@gmail.com",
-      label: "Email"
-    },
-    {
-      icon: Github,
-      href: "https://github.com/Arpit-2678",
-      label: "GitHub"
-    },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/in/arpit-dwivedi2678/",
-      label: "LinkedIn"
-    }
-  ];
-
-  return (
-    <footer className="relative bg-muted/20 border-t border-border/50">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          {/* Logo & Bio */}
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
-              Arpit Dwivedi
-            </h3>
-            <p className="text-muted-foreground text-sm">
-              iOS Developer passionate about creating exceptional mobile experiences.
-            </p>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center space-x-4">
-            {socialLinks.map((link, index) => {
-              const Icon = link.icon;
-              return (
-                <Button
-                  key={index}
-                  variant="glow"
-                  size="icon"
-                  asChild
-                  className="rounded-full"
-                >
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.label}
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                </Button>
-              );
-            })}
-          </div>
-
-          {/* Back to Top */}
-          <div className="text-center md:text-right">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={scrollToTop}
-              className="group"
-            >
-              <ArrowUp className="mr-2 h-4 w-4 group-hover:-translate-y-1 transition-transform" />
-              Back to Top
-            </Button>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="border-t border-border/50 mt-8 pt-8 text-center">
-          <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
-            © 2024 Arpit Dwivedi. Built with 
-            <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-            using React & TypeScript
-          </p>
-        </div>
+const Footer = () => (
+  <footer className="border-t border-white/10">
+    <div className="section-container flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <p className="font-semibold text-foreground">Arpit Dwivedi</p>
+        <p className="mt-1 text-xs text-muted-foreground">Senior iOS Developer · Swift · SwiftUI · TCA</p>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-border/50 to-transparent" />
-      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-border/50 to-transparent" />
-    </footer>
-  );
-};
+      <div className="flex items-center gap-2">
+        <Button asChild variant="ghost" size="icon" className="rounded-full">
+          <a href="mailto:arpitdwivedi2611@gmail.com" aria-label="Email"><Mail className="h-4 w-4" /></a>
+        </Button>
+        <Button asChild variant="ghost" size="icon" className="rounded-full">
+          <a href="https://github.com/Arpit-2678" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Github className="h-4 w-4" /></a>
+        </Button>
+        <Button asChild variant="ghost" size="icon" className="rounded-full">
+          <a href="https://www.linkedin.com/in/arpit-dwivedi2678/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
+        </Button>
+        <Button variant="outline" size="sm" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="ml-2 rounded-full">
+          <ArrowUp className="mr-2 h-4 w-4" /> Top
+        </Button>
+      </div>
+    </div>
+    <div className="border-t border-white/5 py-4 text-center text-xs text-muted-foreground">
+      © {new Date().getFullYear()} Arpit Dwivedi · Built with React, TypeScript & a lot of Swift thinking.
+    </div>
+  </footer>
+);
 
 export default Footer;
