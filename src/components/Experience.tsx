@@ -1,163 +1,103 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building, Calendar, MapPin, ExternalLink } from "lucide-react";
+import { Building2, CalendarDays, ArrowUpRight } from "lucide-react";
 
-const Experience = () => {
-  const experience = {
-    company: "Bobble AI",
-    position: "Software Developer",
-    location: "Gurugram, Haryana, India",
-    duration: "March 2022 - Present",
-    description: "Leading iOS SDK development for keyboard solutions with millions of users worldwide.",
-    responsibilities: [
-      "Developed and delivered standalone custom keyboard SDK within tight one-week deadline, showcasing efficiency and time management skills",
-      "Seamlessly integrated the SDK with Swift Package Manager (SPM), ensuring compatibility with latest Swift code standards for optimal performance",
-      "Played key role in driving revenue growth by optimizing the SDK to support seamless integrations for clients, enhancing monetization opportunities",
-      "Increased DAU (Daily Active Users) by 100% and improved user retention by 20% through strategic feature implementations",
-      "Designed and implemented custom iOS keyboard using Swift programming language and Objective C",
-      "Gained expertise with iOS frameworks such as UIKit, TextKit, CoreData, and experience with keyboard extension and internationalization"
+const roles = [
+  {
+    company: "Ajaib",
+    position: "Senior iOS Developer",
+    duration: "Oct 2025 — Present",
+    location: "Jakarta / Remote",
+    description: "Building iOS experiences for a multi-asset investment platform, with a focus on architecture, trading flows, and real-time product infrastructure.",
+    achievements: [
+      "Built a config-driven Global Navigation Bar replacing 5+ legacy per-screen implementations; conversion reached 83.90% vs 81.30% target.",
+      "Unified multi-asset buying flows across stocks, mutual funds, US stocks, bonds, and crypto using shared RxTCA architecture.",
+      "Migrated Portfolio and Kamus experiences from UIKit toward SwiftUI and TCA.",
+      "Worked on the migration from legacy WebSocket infrastructure to a Centrifugo-based real-time client layer.",
     ],
-    technologies: [
-      "Swift", "Objective-C", "UIKit", "TextKit", "Core Data", 
-      "Swift Package Manager", "Keyboard Extensions", "iOS SDK"
-    ]
-  };
+    technologies: ["Swift", "SwiftUI", "TCA", "RxTCA", "WebSocket", "Centrifugo", "Firebase Remote Config"],
+  },
+  {
+    company: "Bobble AI",
+    position: "iOS Developer",
+    duration: "Mar 2022 — Sep 2025",
+    location: "Gurugram, India",
+    description: "Worked across consumer iOS products and enterprise SDKs, with ownership spanning architecture, performance, ML, and custom keyboard technology.",
+    achievements: [
+      "Improved crash-free users from 68% to 93% and crash-free sessions from 92% to 99.5%.",
+      "Built and shipped an enterprise custom iOS keyboard SDK through Swift Package Manager for 5+ client apps.",
+      "Migrated on-device ML workflows from TensorFlow Lite toward Core ML using coremltools.",
+      "Built an in-app LLM chatbot over REST and contributed to product changes associated with 100% DAU growth and 20% higher retention.",
+    ],
+    technologies: ["Swift", "SwiftUI", "UIKit", "SPM", "Core ML", "TFLite", "Combine", "REST", "Firebase"],
+  },
+];
 
-  const education = {
-    institution: "Lovely Professional University",
-    degree: "B.Tech in Computer Science Engineering",
-    location: "Punjab, India",
-    activities: "Grip Club, Triple T Club - Student Head Coordinator",
-    description: "Active participation in technical clubs and leadership roles, developing both technical and soft skills."
-  };
+const Experience = () => (
+  <section id="experience" className="section-shell">
+    <div className="section-container">
+      <div className="section-heading">
+        <Badge variant="outline" className="section-eyebrow">Experience</Badge>
+        <h2 className="section-title">Four years of shipping, learning, and iterating.</h2>
+        <p className="section-copy">A timeline of the environments where I’ve worked on real users, real constraints, and real production systems.</p>
+      </div>
 
-  return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 text-primary border-primary/30 bg-primary/10">
-            Professional Journey
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent leading-tight py-2">
-            Experience & Education
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Building expertise through hands-on professional experience and continuous learning.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Experience Card */}
-          <div className="lg:col-span-2">
-            <Card className="p-8 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-300">
-              <div className="flex flex-col md:flex-row md:items-start gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
-                    <Building className="h-8 w-8 text-primary" />
-                  </div>
-                </div>
-                
-                <div className="flex-1">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-foreground mb-1">{experience.position}</h3>
-                      <p className="text-xl text-primary font-semibold">{experience.company}</p>
-                    </div>
-                    <div className="text-right text-muted-foreground mt-2 md:mt-0">
-                      <div className="flex items-center text-sm mb-1">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {experience.duration}
-                      </div>
-                      <div className="flex items-center text-sm">
-                        <MapPin className="h-4 w-4 mr-1" />
-                        {experience.location}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {experience.description}
-                  </p>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold mb-3 text-foreground">Key Achievements:</h4>
-                    <ul className="space-y-2">
-                      {experience.responsibilities.map((responsibility, index) => (
-                        <li key={index} className="flex items-start">
-                          <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                          <span className="text-muted-foreground text-sm leading-relaxed">{responsibility}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
+      <div className="relative">
+        <div className="absolute left-4 top-0 hidden h-full w-px bg-gradient-to-b from-primary/50 via-border to-transparent md:block" />
+        <div className="space-y-8">
+          {roles.map((role, index) => (
+            <div key={role.company} className="relative md:pl-12">
+              <div className="absolute left-0 top-8 hidden h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-background shadow-glow md:flex">
+                <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+              </div>
+              <Card className="glass-card p-7 sm:p-9 transition-all duration-300 hover:border-primary/20 hover:shadow-glow">
+                <div className="flex flex-col gap-5 lg:flex-row lg:justify-between">
                   <div>
-                    <h4 className="font-semibold mb-3 text-foreground">Technologies Used:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {experience.technologies.map((tech, index) => (
-                        <Badge key={index} variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                          {tech}
-                        </Badge>
-                      ))}
+                    <div className="mb-2 flex items-center gap-2 text-sm text-primary">
+                      <Building2 className="h-4 w-4" />
+                      {role.company}
                     </div>
+                    <h3 className="text-2xl font-semibold text-foreground">{role.position}</h3>
+                    <p className="mt-2 max-w-2xl text-muted-foreground">{role.description}</p>
+                  </div>
+                  <div className="shrink-0 text-sm text-muted-foreground lg:text-right">
+                    <div className="flex items-center gap-2 lg:justify-end"><CalendarDays className="h-4 w-4" />{role.duration}</div>
+                    <div className="mt-1">{role.location}</div>
                   </div>
                 </div>
-              </div>
-            </Card>
-          </div>
 
-          {/* Education & Side Info */}
-          <div className="space-y-6">
-            {/* Education Card */}
-            <Card className="p-6 bg-gradient-card border-border/50 hover:shadow-card transition-all duration-300">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <ExternalLink className="h-6 w-6 text-accent" />
+                <div className="mt-7 grid gap-2">
+                  {role.achievements.map((item) => (
+                    <div key={item} className="flex gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-3 text-sm leading-6 text-muted-foreground">
+                      <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
-                <div>
-                  <h3 className="font-bold text-foreground mb-1">Education</h3>
-                  <p className="text-primary font-semibold">{education.degree}</p>
-                </div>
-              </div>
-              
-              <p className="font-medium text-foreground mb-2">{education.institution}</p>
-              <p className="text-sm text-muted-foreground mb-3">{education.location}</p>
-              
-              <div className="mb-4">
-                <p className="text-sm font-medium text-accent mb-1">Activities & Leadership:</p>
-                <p className="text-sm text-muted-foreground">{education.activities}</p>
-              </div>
-              
-              <p className="text-sm text-muted-foreground">{education.description}</p>
-            </Card>
 
-            {/* Impact Stats */}
-            <Card className="p-6 bg-primary/5 border-primary/20">
-              <h3 className="font-bold text-foreground mb-4">Professional Impact</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">DAU Increase</span>
-                  <span className="font-bold text-primary">100%</span>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {role.technologies.map((tech) => (
+                    <Badge key={tech} variant="secondary" className="rounded-full border-primary/10 bg-primary/5 text-primary">{tech}</Badge>
+                  ))}
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">User Retention</span>
-                  <span className="font-bold text-primary">+20%</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">SDK Delivery</span>
-                  <span className="font-bold text-primary">1 Week</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Experience</span>
-                  <span className="font-bold text-primary">2+ Years</span>
-                </div>
-              </div>
-            </Card>
-          </div>
+              </Card>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+
+      <Card className="glass-card mt-10 p-7 sm:p-8">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm text-primary">Education</p>
+            <h3 className="mt-1 text-xl font-semibold">B.Tech in Computer Science Engineering</h3>
+            <p className="mt-1 text-sm text-muted-foreground">Lovely Professional University · Punjab, India</p>
+          </div>
+          <Badge variant="outline" className="w-fit border-border/70">Computer Science</Badge>
+        </div>
+      </Card>
+    </div>
+  </section>
+);
 
 export default Experience;
