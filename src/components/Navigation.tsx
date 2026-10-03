@@ -34,7 +34,7 @@ const Navigation = () => {
           ))}
         </div>
 
-        <Button variant="outline" size="sm" onClick={() => window.open("/MyPortfolio/resume.pdf", "_blank")} className="hidden rounded-full border-white/10 bg-white/[0.03] md:flex">
+        <Button variant="outline" size="sm" onClick={() => window.open(`${import.meta.env.BASE_URL}resume.pdf`, "_blank")} className="hidden rounded-full border-white/10 bg-white/[0.03] md:flex">
           <Download className="mr-2 h-4 w-4" /> Resume
         </Button>
 
@@ -50,7 +50,7 @@ const Navigation = () => {
               {item}
             </button>
           ))}
-          <Button variant="outline" size="sm" onClick={() => window.open("/MyPortfolio/resume.pdf", "_blank")} className="mt-1 w-full rounded-xl">
+          <Button variant="outline" size="sm" onClick={() => window.open(`${import.meta.env.BASE_URL}resume.pdf`, "_blank")} className="mt-1 w-full rounded-xl">
             <Download className="mr-2 h-4 w-4" /> Resume
           </Button>
         </div>
